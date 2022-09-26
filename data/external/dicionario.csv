@@ -1,0 +1,6 @@
+variavel,significado,tipo,valores
+text,"Coluna contendo o texto das matérias, sendo cada matéria um dado diferente",nominal,string
+datetime,Coluna contendo a data de publicação das matérias,ordinal,datetime
+category,"Coluna contetndo a categoria na qual cada matéria se encaixa (politica, religião, economia, ciencia e tecnologia, celebridades e cotidiano)",nominal,"['politica', 'tv_celebridades', 'sociedade_cotidiano', 'ciencia_tecnologia', 'economia', 'religiao']"
+label,Coluna contendo os rótulos se a notícia é falsa (fake) ou verdadeira (true),nominal,"['fake', 'true']"
+site,Coluna contendo o link do site em que a notícia foi publicada,nominal,string

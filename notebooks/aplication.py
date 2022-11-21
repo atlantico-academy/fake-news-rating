@@ -13,7 +13,7 @@ from streamlit_option_menu import option_menu
 # carregando modelo
 pipe_lr = joblib.load(
     open(
-        "models/model_RandomForestClassifier_with_stop_words_stemma.joblib",
+        "../models/model_RandomForestClassifier_with_stop_words_stemma.joblib",
         "rb"
     )
 )
@@ -21,7 +21,7 @@ pipe_lr = joblib.load(
 # carregando pre processador
 pipe_pp = joblib.load(
     open(
-        "models/preprocessor.joblib",
+        "../models/preprocessor.joblib",
         "rb"
     )
 )
@@ -93,7 +93,7 @@ def main():
     )
     
     if selected=="Home":
-        st.title("Avaliador de notícias") # fake news predictor
+        st.title("Classificador de notícias") # fake news predictor
     # menu = ['Política', 'Tv e celebridades', 'Sociedade e cotidiano',
     #             'Ciência e tecnologia', 'Economia', 'Religião']
     
@@ -160,7 +160,9 @@ def main():
             
 
             st.title(f"Aviso")
-            st.write(f"""Este é apenas um modelo que faz uma previsão utilizando um algoritimo de aprendizagegm de máquina. Aconselhamos que acesse sites de checagem de notícias como:""")
+            st.write(f"""Este é apenas um modelo que faz uma previsão utilizando um
+            algoritimo de aprendizagegm de máquina. Aconselhamos que acesse sites de
+            checagem de notícias como:""")
             col1, col2, col3 = st.columns(3)
         
             with col1:
@@ -178,10 +180,76 @@ def main():
             st.write("Ou outras entidades especializadas em checagem de fatos.")
         
     if selected=="Projeto":
-        st.title(f"{selected} foi selecionado, mostrar infográfico")
+        # st.title(f"{selected} foi selecionado, mostrar infográfico")
+        st.image('../docs/assets/images/resumo_grafico.png')
         
     if selected=="Sobre":
-        st.title(f"colocar a equipe, foto, nome, ocupação, link do git e email de contato")
+        st.header(f"{selected}")
+        st.markdown("""<div style="text-align: justify;">Este projeto faz parte do trabalho final do Bootcamp em ciência de dados promovido pelo Instituto Atlântico,
+        consistindo no desenvolvimento de um modelo de aprendizagem de máquina,
+        que classifica e indica a confiabilidade de uma notícia. Para criação do modelo foi utilizada
+        uma base de dados com 7200 textos, divididos igualmente entre verdadeiros e falsos.
+        Foram analisados diversos modelos para processamento de texto, sendo escolhido o
+        melhor dentre eles para gerar o modelo final.</div>""", unsafe_allow_html=True)
+        ''
+        st.markdown("""<div style="text-align: justify;">Para dúvidas, problemas ou sugestões, entre em contato pelo e-mail dos membros da equipe.</div>""", unsafe_allow_html=True)
+        st.header("Equipe")
+        col1, col2 = st.columns(2)
+        with col1:
+            'foto?'
+            # st.image()
+            # st.image()
+            # st.image()
+        
+        with col2:
+            st.subheader("Amanda da Silva Farias")
+            st.markdown("""<div style="text-align: justify;">Cientista da Computação
+            com especialização em Engenharia de Software.</div>""", unsafe_allow_html=True)
+            ''
+            st.write(f"e-mail: amandafharias@gmail.com")
+            st.markdown(f"github: [Amanda Farias](https://github.com/AmandaFar/)")
+            # st.markdown(f"Linkedin: [Amanda Farias]()")
+            ''
+            st.subheader("Carlos Matheus Rodrigues Martins")
+            st.markdown("""<div style="text-align: justify;">Estudante de Engenharia
+            de software e computação cognitiva.</div>""", unsafe_allow_html=True)
+            ''
+            st.markdown(f"e-mail: cmatheusrm@alu.ufc.br")
+            st.markdown(f"github: [Carlos Matheus](https://github.com/cmatheusIA)")
+            st.markdown(f"Linkedin: [Carlos Matheus](https://www.linkedin.com/in/carlos-matheus-dev/)")
+            ''
+            st.subheader("Cristina Toshie Iwassaki")
+            st.markdown("""<div style="text-align: justify;">Formada em Física médica
+            pela Unesp de Botucatu. Estudo desenvolvimento web.</div>""", unsafe_allow_html=True)
+            ''
+            st.markdown(f"e-mail: cristoshiwassaki@gmail.com")
+            st.markdown(f"github: [Cristina Iwassaki](https://github.com/c-Tos1wa)")
+            st.markdown(f"Linkedin: [Cristina Iwassaki](https://www.linkedin.com/in/cristina-iwassaki/)")
+            ''
+            st.subheader("Douglas da Silva Teixeira")
+            st.markdown("""<div style="text-align: justify;">Estudante de Física na
+            UFC e de Análise e Desenvolvimento de Sistemas.</div>""", unsafe_allow_html=True)
+            ''
+            st.markdown(f"e-mail: dougteixeira@hotmail.com")
+            st.markdown(f"github: [Douglas Teixeira](https://github.com/DougTeixeira)")
+            st.markdown(f"Linkedin: [Douglas Teixeira](https://www.linkedin.com/in/douglas-teixeira-6854581aa/)")
+            ''
+            st.subheader("Francisco Rafael de Lima Xavier")
+            st.markdown("""<div style="text-align: justify;">Formado em Oceanografia
+            pela UFC, Mestre em Ciências Marinhas tropicais pela UFC e doutorando na UFC.</div>""", unsafe_allow_html=True)
+            ''
+            st.markdown(f"e-mail: frlxavier02@gmail.com")
+            st.markdown(f"github: [Rafael Xavier](https://github.com/rafaelxavier-ocn)")
+            st.markdown(f"Linkedin: [Rafael Xavier](https://www.linkedin.com/in/rafaellxavier)")
+            ''
+            st.subheader("Hosana Fernandes Gomes")
+            st.markdown("""<div style="text-align: justify;">Arquiteta e urbanista pela UFC,
+            Mestrado em Design da Informação pelo PPGAUD-UFC.</div>""", unsafe_allow_html=True)
+            ''
+            st.markdown(f"e-mail: fernandeshosana48@gmail.com")
+            st.markdown(f"github: [Hosana Fernandes](http://github.com/hosanafg)")
+            st.markdown(f"Linkedin: [Hosana Fernandes](https://www.linkedin.com/in/hosana-fernandes-772b94107/)")
+            
 
 if __name__ == '__main__':
     main()
